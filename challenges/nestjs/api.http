@@ -1,0 +1,23 @@
+###
+GET http://localhost:3000/api/assets
+
+###
+POST http://localhost:3000/api/assets
+content-type: application/json
+
+{
+  "id": "asset1",
+  "symbol": "fullcycle"
+}
+
+###
+GET http://localhost:3000/api/orders
+
+###
+POST http://localhost:3000/api/orders
+content-type: application/json
+
+{
+  "asset_id": "asset1",
+  "price": 10.5
+}
