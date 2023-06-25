@@ -1,17 +1,7 @@
-FROM node:18 As development
+FROM node:20-slim
 
-RUN apt-get update && apt-get install -y openssl
+WORKDIR /home/node/app
 
-WORKDIR /usr/src/app
+USER node
 
-COPY --chown=node:node package*.json ./
-
-RUN yarn install --frozen-lockfile
-
-COPY --chown=node:node . .
-
-RUN yarn prisma generate
-
-EXPOSE 3000
-
-CMD ["yarn", "run", "start:dev"]
+CMD [ "tail", "-f", "/dev/null" ]
